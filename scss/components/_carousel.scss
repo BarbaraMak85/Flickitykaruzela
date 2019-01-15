@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-carousel {
+    background: #f7f2e3;
+}
+
+.carousel-cell {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* full width */
+    height: 740px;
+    /* height of carousel */
+    margin-right: 20px;
+    background-size: cover;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+}
+
+p {
+    justify-content: center;
+    color: #E9E9E9;
+    font-size: 50px;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 2px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+}
+
+.progress-bar {
+    height: 20px;
+    width: 0;
+    background: #333;
+}
