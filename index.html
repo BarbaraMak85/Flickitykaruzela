@@ -15,55 +15,25 @@
 </head>
 
 <body>
-    <div class="main-carousel">
-        <div class="carousel-cell" id="caousel-cell1" style="background-image: url('images/Kraina pewnego czarnoksieznika.jpg')">
-            <div class="container">
-                <p>"Kraina pewnego czarnoksiężnika" Tomasz Sętowski</p>
+    <div id="carousel" class="main-carousel">
 
-
-            </div>
-        </div>
-
-        <div class="carousel-cell" id="caousel-cell2" style="background-image: url('images/Cwiczenia z lewitacji.jpg')">
-            <div class="container">
-                <p>"Ćwiczenia z lewitacji" Tomasz Sętowski</p>
-
-
-            </div>
-        </div>
-
-        <div class="carousel-cell" id="caousel-cell3" style="background-image: url('images/Ikona czasu.jpg')">
-            <div class="container">
-                <p>"Ikona czasu" Tomasz Sętowski</p>
-
-
-            </div>
-        </div>
-
-        <div class="carousel-cell" id="caousel-cell4" style="background-image: url('images/Dreamand.jpg')">
-            <div class="container">
-                <p>"Dreamand" Tomasz Sętowski</p>
-
-
-            </div>
-        </div>
-
-        <div class="carousel-cell" id="caousel-cell5" style="background-image: url('images/Kosci zostaly rzucone.jpg')">
-            <div class="container">
-                <p>"Kości zostały rzucone" Tomasz Sętowski</p>
-
-
-            </div>
-        </div>
     </div>
     <div class="progress-bar"></div>
     <div class="button">
         <button id="button-restart">Restart</button>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.js"></script>
+    <script id="template-product-item" type="x-tmpl-mustache">
+
+        <div class="carousel-cell" id="caousel-cell{{id}}" style="background-image: url('images/{{image}}')">
+            <div class="container">
+                <p>{{title}} {{description}}</p>
+            </div>
+        </div>
+    </script>
 
 
-    <script src="vendor/mustache.js"></script>
     <script src="vendor/flickity.pkgd.min.js"></script>
     <script src="vendor/hash.js"></script>
     <script src="js/script.js"></script>
