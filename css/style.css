@@ -23,7 +23,7 @@
       justify-content: center;
   width: 100%;
   /* full width */
-  height: 740px;
+  height: 700px;
   /* height of carousel */
   margin-right: 20px;
   background-size: cover;
@@ -52,5 +52,21 @@ p {
 
 .button {
   position: absolute;
+}
+
+.container-maps {
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 400px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

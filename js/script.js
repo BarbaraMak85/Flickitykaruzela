@@ -1,34 +1,79 @@
 var caurselImages = [{
-        image: "Kraina pewnego czarnoksieznika.jpg",
-        title: '\"Kraina pewnego czarnoksiężnika\"',
+        image: "Nowe Metropolis.jpg",
+        title: '\"Nowe Metropolis\"',
         description: "Tomasz Sętowski",
-        id: 1
+        id: 1,
+        coords: { lat: 54.351, lng: 18.658 }
+
+
     },
     {
         image: "Cwiczenia z lewitacji.jpg",
         title: '\"Ćwiczenia z lewitacji\"',
         description: "Tomasz Sętowski",
-        id: 2
+        id: 2,
+        coords: { lat: 44.203, lng: 2.798 }
     },
     {
         image: "Ikona czasu.jpg",
         title: '\"Ikona czasu\"',
         description: "Tomasz Sętowski",
-        id: 3
+        id: 3,
+        coords: { lat: 50.831, lng: 19.085 }
+
+
     },
     {
-        image: "Dreamand.jpg",
-        title: '\"Dreamand\"',
+        image: "Nadejscie wiosny.jpg",
+        title: '\"Nadejście wiosny\"',
         description: "Tomasz Sętowski",
-        id: 4
+        id: 4,
+        coords: { lat: 47.554, lng: 7.594 }
+
     },
     {
         image: "Kosci zostaly rzucone.jpg",
         title: '\"Kosci zostaly rzucone\"',
         description: "Tomasz Sętowski",
-        id: 5
+        id: 5,
+        coords: { lat: 40.740, lng: -73.997 }
+
     }
 ];
+
+
+
+var createMap = (centerId) => {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: caurselImages[centerId].coords
+    });
+
+    caurselImages.forEach(slide => {
+        console.log("SLIDE");
+        var marker = new google.maps.Marker({
+            position: slide.coords,
+            map: map
+        });
+
+        marker.addListener('click', function() {
+            // Wewnątrz funcji wpisujemy kod, który ma się wykonać po kliknięciu markera. W tym przykładzie wyświetlimy tekst na stronie. 
+            flkty.selectCell(slide.id - 1);
+        });
+    })
+
+
+
+}
+
+// Mapy
+(function() {
+    window.initMap = function() {
+        createMap(0);
+    };
+})();
+
+
 
 var templateList = document.getElementById('template-product-item').innerHTML;
 Mustache.parse(templateList);
@@ -48,6 +93,11 @@ var flkty = new Flickity(elem, {
     hash: true,
     pageDots: false
 });
+
+flkty.on('change', function(index) {
+    createMap(index);
+});
+
 
 var progressBar = document.querySelector('.progress-bar')
 

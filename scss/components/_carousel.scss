@@ -18,7 +18,7 @@
     justify-content: center;
     width: 100%;
     /* full width */
-    height: 740px;
+    height: 700px;
     /* height of carousel */
     margin-right: 20px;
     background-size: cover;
@@ -46,4 +46,17 @@ p {
 
 .button {
     position: absolute;
+}
+
+.container-maps {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
 }
