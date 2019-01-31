@@ -1,3 +1,5 @@
+var map;
+
 var caurselImages = [{
         image: "Nowe Metropolis.jpg",
         title: '\"Nowe Metropolis\"',
@@ -43,35 +45,32 @@ var caurselImages = [{
 
 
 
-var createMap = (centerId) => {
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: caurselImages[centerId].coords
-    });
 
-    caurselImages.forEach(slide => {
-        console.log("SLIDE");
-        var marker = new google.maps.Marker({
-            position: slide.coords,
-            map: map
-        });
-
-        marker.addListener('click', function() {
-            // Wewnątrz funcji wpisujemy kod, który ma się wykonać po kliknięciu markera. W tym przykładzie wyświetlimy tekst na stronie. 
-            flkty.selectCell(slide.id - 1);
-        });
-    })
-
-
-
-}
 
 // Mapy
 (function() {
     window.initMap = function() {
-        createMap(0);
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: caurselImages[0].coords
+        });
+
+        caurselImages.forEach(slide => {
+            console.log("SLIDE");
+            var marker = new google.maps.Marker({
+                position: slide.coords,
+                map: map
+            });
+
+            marker.addListener('click', function() {
+                // Wewnątrz funcji wpisujemy kod, który ma się wykonać po kliknięciu markera. W tym przykładzie wyświetlimy tekst na stronie. 
+                flkty.selectCell(slide.id - 1);
+
+            });
+        })
     };
 })();
+
 
 
 
@@ -95,7 +94,7 @@ var flkty = new Flickity(elem, {
 });
 
 flkty.on('change', function(index) {
-    createMap(index);
+    map.panTo(caurselImages[index].coords);
 });
 
 
